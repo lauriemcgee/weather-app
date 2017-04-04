@@ -1,16 +1,23 @@
- <div>
- <div>
- <div>
- <div>
- </div>
+ <div class="row">
+   <div class="col">
+     <%= form_tag "/dailyforecasts", method: :post do %>
+     City: <input type="text" name="city">
+     State: <input type="text" name="state">
+     <input type="submit" value="submit">
+    <% end %>
+  </div>
+</div>
 <div class="container">
   <p> <% @forecast.each do |weather| %></p>
     <div class="row">
+    <div class="col">
+    <h4> Forecast for <%= @city %>, <%= @state %> </h4>
+    </div>
        <div class="col">
-         <p>Date<%= weather["date"] %></p>
-         <p>Day<%= weather["day"] %></p>
-         <p>High<%= weather["high"] %></p>
-         <p>Low<%= weather["low"] %></p>
+         <p>Date <%= weather["date"] %></p>
+         <p>Day <%= weather["day"] %></p>
+         <p>High <%= weather["high"] %></p>
+         <p>Low <%= weather["low"] %></p>
          <p>FYI: <%= weather["text"] %></p>
        </div>
     </div>
